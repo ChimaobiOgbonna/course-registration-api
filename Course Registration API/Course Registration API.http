@@ -1,0 +1,104 @@
+@Course_Registration_API_HostAddress = http://localhost:5077
+
+GET {{Course_Registration_API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+### add student
+POST {{Course_Registration_API_HostAddress}}/api/Students
+Content-Type: application/json
+
+{
+  "Name": "Charles Ujah",
+  "RegNo": "REG113",
+  "Department": "Economics",
+  "DateRegistered": "2020-11-09"
+}
+
+
+### get all students
+GET {{Course_Registration_API_HostAddress}}/api/Students
+Content-Type: application/json
+
+
+### get one student using id
+GET {{Course_Registration_API_HostAddress}}/api/Students/2
+Content-Type: application/json
+
+
+### update a student data
+PATCH {{Course_Registration_API_HostAddress}}/api/Students/2
+Content-Type: application/json
+
+{
+    "DateRegistered": "2022-11-12",
+    "department":"Economics"
+}
+
+
+### Delete a student
+DELETE {{Course_Registration_API_HostAddress}}/api/Students/2
+Content-Type: application/json
+
+
+### Add a course
+POST {{Course_Registration_API_HostAddress}}/api/Courses
+Content-Type: application/json
+{
+  "CourseCode": "EDU201",
+  "CourseTitle": "Philosophy of Education",
+  "LecturerName": "Prof. Umeh Dimkpa"
+}
+
+
+### get all courses
+GET {{Course_Registration_API_HostAddress}}/api/Courses
+Content-Type: application/json
+
+
+### get a particular course (with id)
+GET {{Course_Registration_API_HostAddress}}/api/Courses/1
+Content-Type: application/json
+
+
+### update a course data
+PATCH {{Course_Registration_API_HostAddress}}/api/Courses/1
+Content-Type: application/json
+
+{
+    "LecturerName": "Mr. Sam Chimaobi"
+}
+
+
+### Delete a course
+DELETE {{Course_Registration_API_HostAddress}}/api/Courses/2
+Content-Type: application/json
+
+
+### Register a student for a course
+POST {{Course_Registration_API_HostAddress}}/api/Registrations?studentId=5&courseId=1
+Content-Type: application/json
+
+
+### Get all registrations
+GET {{Course_Registration_API_HostAddress}}/api/Registrations
+Content-Type: application/json
+
+
+###get registered courses for one student 
+GET {{Course_Registration_API_HostAddress}}/api/Registrations/student/5
+Content-Type: application/json
+
+
+
+### get registered students for one course
+GET {{Course_Registration_API_HostAddress}}/api/Registrations/course/1
+Content-Type: application/json
+
+
+
+### Delete or unregister a student from a course
+DELETE {{Course_Registration_API_HostAddress}}/api/Registrations?studentId=3&courseId=3
+Content-Type: application/json
+
+
+
